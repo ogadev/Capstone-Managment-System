@@ -3,8 +3,6 @@ import './styles/style.css'
 import { Auth } from "aws-amplify";
 
 
-
-
 class Login extends Component {
     constructor() {
         super()
@@ -40,31 +38,50 @@ class Login extends Component {
     signUpSubmit = async event => {
         event.preventDefault();
        const {sName, sEmail, sPassword, sConfirmPassword, sIdNumber} = this.state;
-       Auth.signUp(sEmail, sPassword)
-       .then(data => console.log(data))
-       .catch(error => console.log(error))
+       if (sPassword !== sConfirmPassword) {
+           alert("passwords don't match");
+       }
+       else if(sIdNumber.length !== 10){
+           //TODO:: trim spaces
+           alert("ID number must be 10 characters")
+       }
+       else {
+        Auth.signUp({
+            'username': sEmail,
+            'password': sPassword,
+            'attributes': {
+                'custom:name': sName,
+                'custom:ASUID': sIdNumber
+            }
+        })
+        .then(data => {
+            alert("Check your email for confirmation link");
+            console.log(data);
+        })
+        .catch(error => {
+            alert("sign up failed");
+            console.log(error)
+        })
+       }
+      
     }
 
-    handleSubmit = async event => {
+    signInSubmit = async event => {
+        const {email, password} = this.state;
+
         event.preventDefault();
-        console.log("it works")
-        try {
-            const user = await Auth.signIn(this.state.email, this.state.password);
+        Auth.signIn({
+            'username': email,
+            'password': password
+        })
+        .then(user=> {
             console.log(user);
-            this.props.history.push("/googleforms");
-        
-        }catch(error) {
-            let err = null;
-            !error.message ? err = { "message": error } : err = error;
-            this.setState({
-            errors: {
-                ...this.state.errors,
-                cognito: err
-            }
-            });
-            console.log(error)
-            console.log("it didn't work")
-        }
+            console.log("authentication work");
+        })
+        .catch(error =>{
+            console.log(error);
+            console.log("authentication failed!");
+        })
     };
 
    onInputChange(event) {
@@ -89,10 +106,10 @@ class Login extends Component {
                     <div className="container">
                         <h2>Welcome to the Capstone Project Managment Dashboard</h2>
                         <p>If this is your first time logging in, please check your ASU email to get your login credentials, and change your password.</p>
-                        <form className="login-form" onSubmit={this.handleSubmit}>
+                        <form className="login-form" onSubmit={this.signInSubmit}>
                             <input
-                                type="text" 
-                                placeholder="username" 
+                                type="email" 
+                                placeholder="email" 
                                 value={this.state.email}
                                 onChange={this.onInputChange}
                                 name="email"
@@ -137,6 +154,7 @@ class Login extends Component {
                                     value={this.state.sName}
                                     onChange={this.onInputChange}
                                     name="sName"
+                                    required
                                 />    
                                 <label>Email</label>
                                 <input 
@@ -145,6 +163,7 @@ class Login extends Component {
                                     value={this.state.sEmail}
                                     onChange={this.onInputChange}
                                     name="sEmail"
+                                    required
                                 />
                     
                                 <label>Password</label>
@@ -154,6 +173,7 @@ class Login extends Component {
                                     value={this.state.sPassword}
                                     onChange={this.onInputChange}
                                     name="sPassword"
+                                    required
                                 />
                                 <label>Re-enter Password</label>
                                 <input 
@@ -162,14 +182,16 @@ class Login extends Component {
                                     value={this.state.sConfirmPassword}
                                     onChange={this.onInputChange}
                                     name="sConfirmPassword"
+                                    required
                                 />
                                 <label>ID Number</label>
                                 <input 
                                     type="numbers" 
                                     placeholder="Enter ID Number"
-                                    value={this.state.idNumber}
+                                    value={this.state.sIdNumber}
                                     onChange={this.onInputChange}
-                                    name="sIdnumber"
+                                    name="sIdNumber"
+                                    required
                                 />
                                 <button className="btn">Sign Up</button>
                             </div>
