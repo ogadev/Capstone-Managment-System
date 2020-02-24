@@ -7,15 +7,29 @@ import Login from './Login';
 import GoogleForms from './GoogleForms';
 import { withAuthenticator } from 'aws-amplify-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProposalForm from './ProposalForm';
+import ForgotPassword from './ForgotPassword'
 
 Amplify.configure(aws_exports)
 
 function App() {
   return (
     <switch>
-        <Route exact path="/" component ={Login} />
-        <Route exact path="/googleforms" component={GoogleForms} />
+        <Route exact path="/"> 
+          <Login />
+        </Route>
+        <Route path="/googleforms">
+          <GoogleForms />
+        </Route>
+        <Route path="/forgotpassword" >
+          <ForgotPassword />
+        </Route>
       </switch>
+    // <div>
+    //   <ProposalForm />
+    //   <GoogleForms />
+    // </div>
+  
   );
 }
 

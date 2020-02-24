@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/style.css'
+import './styles/style.css';
 import { Auth } from "aws-amplify";
 
 
@@ -90,15 +90,15 @@ class Login extends Component {
            [name]: value
        })
    };
-
+   //check for the new login after I get the sucess message. 
     render() {
         const {showSignUp} = this.state;
         return (
-            <body>
+            <div className="login-body">
 
                 <div className="asu-image">
                     <div className="container">
-                        <h1 className="intro">Arizona State Computer Science Capstone Project Managment</h1>
+                        <h1 className="intro">Arizona State Computer Science Capstone Project Management</h1>
                         <p className="intro-note">Build Something Cool Today</p>
                         </div>
                 </div> 
@@ -125,7 +125,7 @@ class Login extends Component {
                             />
                             <button className="btn"> login</button>    
                             <div className="under-login">
-                                <p className="under-login-items">forgot password?</p>
+                                <p className="under-login-items" ><a href="/forgotpassword">forgot password?</a></p>
                                 <p
                                     className="under-login-items" 
                                     onClick={() => this.setState({showSignUp: true})}>Sign up</p> 
@@ -201,7 +201,7 @@ class Login extends Component {
                 :null
                  }
             
-            </body>
+            </div>
         )
     }
 }
