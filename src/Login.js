@@ -45,6 +45,9 @@ class Login extends Component {
            //TODO:: trim spaces
            alert("ID number must be 10 characters")
        }
+       else if(sPassword.length < 8){
+           alert("Password must be at least 8 characters")
+       }
        else {
         Auth.signUp({
             'username': sEmail,
