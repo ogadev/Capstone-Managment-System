@@ -9,7 +9,7 @@ import { withAuthenticator } from 'aws-amplify-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProposalForm from './ProposalForm';
 import ForgotPassword from './ForgotPassword'
-
+import FileUpload from './FileUpload'
 Amplify.configure(aws_exports)
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
         </Route>
         <Route path="/forgotpassword" >
           <ForgotPassword />
+        </Route>
+        <Route path="/fileuploadtest">
+          <FileUpload />
         </Route>
       </switch>
     // <div>

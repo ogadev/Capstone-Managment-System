@@ -20,16 +20,8 @@ class FileUpload extends React.Component {
     }
 
     onClickHandler = () => {
-        console.log("got rid of axios look for post request into dynamo")
-    //     const data = new FormData()
-    //     data.append('file', this.state.csvFile)
-    //     axios.post("http://localhost:8000/upload", data, { 
-    //        // receive two    parameter endpoint url ,form data
-    //    })
-    //    .then(res => { // then print response status
-    //     console.log(res.statusText)
-    //  })
-    
+        //Joseph go to dev tools to this console.log
+        console.log("test button") 
     }
 
    
