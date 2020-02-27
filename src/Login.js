@@ -41,6 +41,9 @@ class Login extends Component {
        if (sPassword !== sConfirmPassword) {
            alert("passwords don't match");
        }
+       else if(sPassword === "password"){
+           alert("Don't make your password, \"password\". Please");
+       }
        else if(sIdNumber.length !== 10){
            //TODO:: trim spaces
            alert("ID number must be 10 characters")
