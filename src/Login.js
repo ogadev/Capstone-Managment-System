@@ -52,22 +52,25 @@ class Login extends Component {
            alert("Password must be at least 8 characters")
        }
        else {
-        Auth.signUp({
-            'username': sEmail,
-            'password': sPassword,
-            'attributes': {
-                'custom:name': sName,
-                'custom:ASUID': sIdNumber
-            }
-        })
-        .then(data => {
-            alert("Check your email for confirmation link");
-            console.log(data);
-        })
-        .catch(error => {
-            alert("sign up failed");
-            console.log(error)
-        })
+            fetch("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/users")
+                .then(response => response.json())
+                .then(data => console.log(data))           
+            Auth.signUp({
+                'username': sEmail,
+                'password': sPassword,
+                'attributes': {
+                    'custom:name': sName,
+                    'custom:ASUID': sIdNumber
+                }
+            })
+            .then(data => {
+                alert("Check your email for confirmation link");
+                console.log(data);
+            })
+            .catch(error => {
+                alert("sign up failed");
+                console.log(error)
+            })
        }
       
     }
