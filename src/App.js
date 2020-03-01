@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProposalForm from './ProposalForm';
 import ForgotPassword from './ForgotPassword'
 import FileUpload from './FileUpload'
+import Demo from './Demo'
+import SignInSucc from './SignInSucc'
 Amplify.configure(aws_exports)
 
 function App() {
@@ -26,6 +28,12 @@ function App() {
         </Route>
         <Route path="/fileuploadtest">
           <FileUpload />
+        </Route>
+        <Route path="/democards">
+          <Demo />
+        </Route>
+        <Route path="/signout">
+          <SignInSucc />
         </Route>
       </switch>
     // <div>

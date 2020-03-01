@@ -94,6 +94,7 @@ class Login extends Component {
         .then(user=> {
             console.log(user);
             console.log("authentication work");
+            this.props.history.push("/signout")
         })
         .catch(error =>{
             console.log(error);
