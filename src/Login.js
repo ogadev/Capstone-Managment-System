@@ -20,6 +20,7 @@ class Login extends Component {
             sConfirmPassword: "",
             sIdNumber: "",
 
+            
             showSignUp: false
         };
         this.onInputChange = this.onInputChange.bind(this)
@@ -52,26 +53,33 @@ class Login extends Component {
            alert("Password must be at least 8 characters")
        }
        else {
-            fetch("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/users")
+            let isInDB = false;
+            console.log("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/"+sIdNumber)
+            fetch("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/"+sIdNumber)
                 .then(response => response.json())
-                .then(data => console.log(data))           
-            Auth.signUp({
-                'username': sEmail,
-                'password': sPassword,
-                'attributes': {
-                    'custom:name': sName,
-                    'custom:ASUID': sIdNumber
-                }
-            })
-            .then(data => {
-                alert("Check your email for confirmation link");
-                console.log(data);
-            })
-            .catch(error => {
-                alert("sign up failed");
-                console.log(error)
-            })
-       }
+                .then(data => {
+                    if (data["Count"] > 0){
+                        Auth.signUp({
+                            'username': sEmail,
+                            'password': sPassword,
+                            'attributes': {
+                                'custom:name': sName,
+                                'custom:ASUID': sIdNumber
+                            }
+                        })
+                        .then(data => {
+                            alert("Check your email for confirmation link");
+                            console.log(data);
+                        })
+                        .catch(error => {
+                            alert("sign up failed");
+                            console.log(error)
+                        })
+                    }else{
+                        alert("The student ID you entered is not signed up for the course\nIf you think this is a mistake contact your administrator")
+                    }
+                })
+            }     
       
     }
 
