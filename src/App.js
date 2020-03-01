@@ -12,6 +12,7 @@ import ForgotPassword from './ForgotPassword'
 import FileUpload from './FileUpload'
 import Demo from './Demo'
 import SignInSucc from './SignInSucc'
+import ProjectProposalSubmission from './ProjectProposalSubmission'
 Amplify.configure(aws_exports)
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/signout">
           <SignInSucc />
+        </Route>
+        <Route path ="/proposal">
+          <ProjectProposalSubmission />
         </Route>
       </switch>
     // <div>

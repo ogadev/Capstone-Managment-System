@@ -53,13 +53,13 @@ class Login extends Component {
            alert("Password must be at least 8 characters")
        }
        else {
-            let isInDB = false;
             console.log("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/"+sIdNumber)
             fetch("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/"+sIdNumber)
                 .then(response => response.json())
                 .then(data => {
                     if (data["Count"] > 0){
                         Auth.signUp({
+                            
                             'username': sEmail,
                             'password': sPassword,
                             'attributes': {
@@ -94,7 +94,6 @@ class Login extends Component {
         .then(user=> {
             console.log(user);
             console.log("authentication work");
-            this.props.history.push("/signout")
         })
         .catch(error =>{
             console.log(error);
