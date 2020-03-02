@@ -39,6 +39,9 @@ function App() {
         <Route path ="/proposal">
           <ProjectProposalSubmission />
         </Route>
+        <Route path="/demo">
+          <Demo />
+        </Route>
       </switch>
     // <div>
     //   <ProposalForm />
