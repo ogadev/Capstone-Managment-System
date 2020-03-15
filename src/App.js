@@ -17,7 +17,7 @@ Amplify.configure(aws_exports)
 
 function App() {
   return (
-    <switch>
+    <Switch>
         <Route exact path="/"> 
           <Login />
         </Route>
@@ -42,12 +42,8 @@ function App() {
         <Route path="/demo">
           <Demo />
         </Route>
-      </switch>
-    // <div>
-    //   <ProposalForm />
-    //   <GoogleForms />
-    // </div>
-  
+      </Switch>
+   
   );
 }
 

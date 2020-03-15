@@ -1,8 +1,17 @@
-.form {
-    margin: auto;
-    width: 50%;
+.proposal-page {
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
 }
-iframe {
-    overflow: hidden;
-    height: 100vh;
+
+label {
+    margin-top: 6em;
+}
+
+textarea {
+    width: 100%;
+}
+
+.form-h2 {
+    padding: 1em 0;
 }
