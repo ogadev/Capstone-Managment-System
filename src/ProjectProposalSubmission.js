@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/forms.css';
 import { Auth } from "aws-amplify";
-
+import axios from 'axios';
 
 class ProjectProposalSubmission extends Component {
     constructor() {
@@ -22,7 +22,7 @@ class ProjectProposalSubmission extends Component {
             fProjectTitle: "",
             fProjectDescription: "",
             fProjectExperience: "",
-            fExpectedDeliversables: "",
+            fExpectedDeliverables: "",
             fDesiredBackground: "",
             fDesiredNumberGroups: 1,
             fDesiredNumberMembers: 4,
@@ -48,7 +48,7 @@ class ProjectProposalSubmission extends Component {
         //this was just in al of Oscar's messages
         event.preventDefault()   
         
-        
+        /*
         const Http = new XMLHttpRequest();
         const url = "https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/name=zach&org=emerson"; //whatever the url is
         Http.open("GET", url, true);
@@ -70,7 +70,39 @@ class ProjectProposalSubmission extends Component {
         Http.onreadystatechange = function(){
             console.log(Http.responseText);
         }
+        */
+        const response = await axios.post(
+        'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/project-proposal',
+        {
+        /*TODO
+        -------------------------------
+        figure out wtf to do with proposalID
+        */
+            "proposalID": "3",
+            "newID":"4", //for now this is manual
+            "expectedBackground": this.state.fDesiredBackground,
+            "numGroups": (this.state.fDesiredNumberGroups).toString(),
+            "numMembersPerGroup":(this.state.fDesiredNumberMembers).toString(),
+            "projectDeliverables": this.state.fExpectedDeliverables,
+            "projectDescription": this.state.fProjectDescription,
+            "projectExperience": this.state.fProjectExperience,
+            "projectTitle": this.state.fProjectTitle,
+            "proposerContactEmail": this.state.fProposerContactEmail,
+            "proposerContactName":this.state.fProposerContactName,
+            "proposerEmail":this.state.fProposerEmail,
+            "proposerOrg":this.state.fProposerOrg,
+            "semesterYear":this.state.fSemesterYear,
+            "proposerName":this.state.fProposerName
+        })
         
+
+        /*TODO
+        -------------------------------
+        Handle error response and display to user what went wrong
+        */
+        console.log(response.status);
+        
+    
 
 
         // Converting JSON data to string 
@@ -193,7 +225,7 @@ class ProjectProposalSubmission extends Component {
                             <br></br>
                             <label for="fDesiredNumberGroups">Desired Number of Groups</label>
                             <input 
-                                type="range" 
+                                type="number" 
                                 placeholder="" 
                                 value={this.state.fDesiredNumberGroups}
                                 onChange={this.onInputChange}
@@ -204,7 +236,7 @@ class ProjectProposalSubmission extends Component {
                             />
                             <label for="fDesiredNumberMembers">Desired Number of Group Members</label>
                             <input 
-                                type="range" 
+                                type="number" 
                                 placeholder="" 
                                 value={this.state.fDesiredNumberMembers}
                                 onChange={this.onInputChange}
