@@ -91,154 +91,148 @@ class Preferences extends Component {
     render() {
         const {showSignUp} = this.state;
         return (
-            <div className="login-body">
 
-                <div className="asu-image">
-                    <div className="container">
-                        <h1 className="intro">Arizona State Computer Science Capstone Project Management</h1>
-                        <p className="intro-note">Build Something Cool Today</p>
-                        </div>
-                </div> 
-                <div className="preference-page">
-                    <div className="container">
-                        <h2>Project Preference Submission</h2>
-                        <form className="preference-form" onSubmit={this.submitPreferences}>
-                            <label for="asuID">ASU ID</label>
-                            <input
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.asuID}
-                                onChange={this.onInputChange}
-                                name="asuID"
-                                required
-                            />
-                            <label for="fp1">Preference 1</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp1}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp2">Preference 2</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp2}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp3">Preference 3</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp3}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp4">Preference 4</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp4}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp5">Preference 5</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp5}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp6">Preference 6</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp6}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp7">Preference 7</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp7}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp8">Preference 8</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp8}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp9">Preference 9</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp9}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-                            <br></br>
-
-                            <label for="fp10">Preference 10</label>
-                            <br></br>
-                            <select
-                                onChange={this.onInputChange}
-                                value={this.state.fp10}
-                            >
-                                <option  value="Project 1">Project 1</option>
-                                <option  value="Project 2">Project 2</option>
-                                <option  value="Project 3">Project 3</option>
-                            </select>
-
-                            <button className="btn">Submit</button>
-                            
-                        </form>
-                        <p className="support">If you run into any issues please contact csecapstone@gmail.com</p>
-                    </div>
-                </div>
             
+            <div className="preference-page">
+                <div className="container">
+                    <h2>Project Preference Submission</h2>
+                    <form className="preference-form" onSubmit={this.submitPreferences}>
+                        <label for="asuID">ASU ID</label>
+                        <input
+                            type="text" 
+                            placeholder="" 
+                            value={this.state.asuID}
+                            onChange={this.onInputChange}
+                            name="asuID"
+                            required
+                        />
+                        <label for="fp1">Preference 1</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp1}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp2">Preference 2</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp2}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp3">Preference 3</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp3}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp4">Preference 4</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp4}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp5">Preference 5</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp5}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp6">Preference 6</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp6}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp7">Preference 7</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp7}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp8">Preference 8</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp8}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp9">Preference 9</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp9}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+                        <br></br>
+
+                        <label for="fp10">Preference 10</label>
+                        <br></br>
+                        <select
+                            onChange={this.onInputChange}
+                            value={this.state.fp10}
+                        >
+                            <option  value="Project 1">Project 1</option>
+                            <option  value="Project 2">Project 2</option>
+                            <option  value="Project 3">Project 3</option>
+                        </select>
+
+                        <button className="btn">Submit</button>
+                        
+                    </form>
+                    <p className="support">If you run into any issues please contact csecapstone@gmail.com</p>
+                </div>
             </div>
+        
+        
         )
     }
 }

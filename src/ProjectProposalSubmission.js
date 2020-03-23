@@ -121,14 +121,7 @@ class ProjectProposalSubmission extends Component {
     render() {
         const {showSignUp} = this.state;
         return (
-            <div className="login-body">
 
-                <div className="asu-image">
-                    <div className="container">
-                        <h1 className="intro">Arizona State Computer Science Capstone Project Management</h1>
-                        <p className="intro-note">Build Something Cool Today</p>
-                        </div>
-                </div> 
                 <div className="proposal-page">
                     <div className="container">
                         <h2>Project Proposal Submission</h2>
@@ -261,7 +254,7 @@ class ProjectProposalSubmission extends Component {
                     </div>
                 </div>
             
-            </div>
+     
         )
     }
 }
