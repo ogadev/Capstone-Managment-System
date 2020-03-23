@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import './styles/style.css';
 import { Auth } from "aws-amplify";
+import axios from 'axios';
+import Amplify, { API } from 'aws-amplify';
+
+// Amplify.configure({
+//     // OPTIONAL - if your API requires authentication 
+  
+//     API: {
+//         endpoints: [
+//             {
+//                 name: "CMS_API",
+//                 endpoint: "https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev"
+//             }
+//         ]
+//     }
+// });
 
 
 class Login extends Component {
@@ -101,6 +116,34 @@ class Login extends Component {
         })
     };
 
+    signOut = async (event) => {
+        const config = {
+            headers: { Authorization: (await Auth.currentSession()).getIdToken().getJwtToken() }
+        }
+        // const auth = (await Auth.currentSession()).getIdToken().getJwtToken();
+        const response = await axios.post(
+            'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer',
+            {name: 'Oscar Amaya'},
+            config
+            
+        )
+        Auth.currentSession()
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        console.log(response)
+        // let apiName = 'CMS_API';
+        // let path = 'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer'
+        // let myInit = { 
+        //     headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}` }
+        // }
+        // return await API.post(apiName, path, myInit);
+
+    }
+
    onInputChange(event) {
        const {name, value} = event.target
        this.setState({
@@ -146,9 +189,9 @@ class Login extends Component {
                                 <p
                                     className="under-login-items" 
                                     onClick={() => this.setState({showSignUp: true})}>Sign up</p> 
-                            </div>
-                            
+                            </div> 
                         </form>
+                        <button onClick={() => this.signOut()}>sign out</button>
                         <p className="support">If you run into any issues please contact support</p>
                     </div>
                 </div>
