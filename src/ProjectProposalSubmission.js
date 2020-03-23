@@ -136,7 +136,7 @@ class ProjectProposalSubmission extends Component {
                             <label for="fProposerOrg">Proposer Organization</label>
                             <input
                                 type="text" 
-                                placeholder="email" 
+                                placeholder="" 
                                 value={this.state.fProposerOrg}
                                 onChange={this.onInputChange}
                                 name="fProposerOrg"
