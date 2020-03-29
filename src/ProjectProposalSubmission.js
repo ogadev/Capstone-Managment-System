@@ -47,30 +47,6 @@ class ProjectProposalSubmission extends Component {
         //some sort of method 
         //this was just in al of Oscar's messages
         event.preventDefault()   
-        
-        /*
-        const Http = new XMLHttpRequest();
-        const url = "https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/name=zach&org=emerson"; //whatever the url is
-        Http.open("GET", url, true);
-        Http.setRequestHeader("Content-Type", "application/json");
-        console.log("opening url request");
-        Http.onreadystatechange = function () { 
-            if (Http.readyState === 4 && Http.status === 200) { 
-
-                // Print received data from server 
-
-            } else if(Http.status === 403){
-                console.log("Error encountered");
-            }
-        }; 
-
-        // Converting JSON data to string 
-        //var data = JSON.stringify({ "proposer_org": this.proposer_org, "proposer_name": this.fProposerEmail}); 
-        Http.send();
-        Http.onreadystatechange = function(){
-            console.log(Http.responseText);
-        }
-        */
         const response = await axios.post(
         'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/project-proposal',
         {
@@ -100,10 +76,22 @@ class ProjectProposalSubmission extends Component {
         -------------------------------
         Handle error response and display to user what went wrong
         */
-        console.log(response.status);
-        
-    
+        switch(response.status){
+            case 200:
+                //send to "thank you\nYour project has been submitted. If you have any further questions please contact capstonecoordinater@asu.edu"
+                break;
+            case 401: //unauthorized
+                break;
+            case 403: //forbidden
+                break;
+            case 404: //not found
+                break;
+            case 408: //timeout
+                break;
+            default:
+                
 
+        }
 
         // Converting JSON data to string 
         

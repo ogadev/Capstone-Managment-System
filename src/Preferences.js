@@ -23,11 +23,26 @@ class Preferences extends Component {
             fp8:"Project 3",
             fp9:"Project 2",
             fp10:"Project 2",
-            asuID:""
+            asuID:"",
+            projects:{}
 
             
         };
         this.onInputChange = this.onInputChange.bind(this)
+    }
+
+    componentDidMount() {
+        fetch("https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/project-proposal")
+            .then(response => response.json())
+            .then(
+                (resData) => {
+                    for(var key in resData){
+                        this.state.projects[key] = resData[key];
+                    }
+                    console.log(this.state.projects);
+
+                    //populate the 
+                });
     }
 
 
@@ -62,7 +77,13 @@ class Preferences extends Component {
             "fp8": this.state.fp8,
             "fp9": this.state.fp9,
             "fp10": this.state.fp10,
-            "asuID": (this.state.asuID).toString()
+            "asuID": (this.state.asuID).toString() 
+            /*TODO
+            ------------------------------
+            ASU id should be pulled from the user that is currently logged in.
+            **********submission page should not be able to be accessed without being logged in
+            */
+
         })
         
 
@@ -71,8 +92,26 @@ class Preferences extends Component {
         Handle error response and display to user what went wrong
         */
         console.log(response);
+
+
+        switch(response.status){
+            case 200:
+                //send to "thank you\nYour project has been submitted. If you have any further questions please contact capstonecoordinater@asu.edu"
+                break;
+            case 401: //unauthorized
+                break;
+            case 403: //forbidden
+                break;
+            case 404: //not found
+                break;
+            case 408: //timeout
+                break;
+            default:
+                
+
+        }
         
-    
+        console.log("request fired");
 
 
         // Converting JSON data to string 
