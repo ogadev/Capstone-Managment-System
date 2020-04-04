@@ -25,7 +25,7 @@ class Preferences extends Component {
             fp10:"Project 2",
             asuID:"",
             projects:[],
-            yellow:[1,2,3]
+            yellow:[]
 
             
         };
@@ -41,7 +41,10 @@ class Preferences extends Component {
                         this.state.projects[key] = resData[key];
                     }
                     console.log(this.state.projects);
-                    this.state.yellow = [4,5,6]
+                   
+                    this.setState({
+                        yellow: [4,5,6]
+                    })
                     console.log(this.state.yellow)
                     
                     //populate the 
