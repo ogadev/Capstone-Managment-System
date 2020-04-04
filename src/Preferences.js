@@ -24,7 +24,8 @@ class Preferences extends Component {
             fp9:"Project 2",
             fp10:"Project 2",
             asuID:"",
-            projects:{}
+            projects:[],
+            yellow:[1,2,3]
 
             
         };
@@ -40,9 +41,12 @@ class Preferences extends Component {
                         this.state.projects[key] = resData[key];
                     }
                     console.log(this.state.projects);
-
+                    this.state.yellow = [4,5,6]
+                    console.log(this.state.yellow)
+                    
                     //populate the 
                 });
+            
     }
 
 
@@ -151,9 +155,7 @@ class Preferences extends Component {
                             onChange={this.onInputChange}
                             value={this.state.fp1}
                         >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
+                            {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
                         </select>
                         <br></br>
 
