@@ -13,16 +13,16 @@ class Preferences extends Component {
                 blankfield: false
             },
             //don't think we need asu id but will get to start
-            fp1: "Project1",
-            fp2: "Project 2",
-            fp3:"Projct 3",
-            fp4:"Project 1",
-            fp5:"Project 4",
-            fp6:"Project 6",
-            fp7:"Project 3",
-            fp8:"Project 3",
-            fp9:"Project 2",
-            fp10:"Project 2",
+            fp1:"",
+            fp2:"",
+            fp3:"",
+            fp4:"",
+            fp5:"",
+            fp6:"",
+            fp7:"",
+            fp8:"",
+            fp9:"",
+            fp10:"",
             asuID:"",
             projects:[],
             yellow:[]
@@ -30,6 +30,8 @@ class Preferences extends Component {
             
         };
         this.onInputChange = this.onInputChange.bind(this)
+        this.handleChange = this.onInputChange.bind(this)
+
     }
 
     componentDidMount() {
@@ -43,7 +45,7 @@ class Preferences extends Component {
                     console.log(this.state.projects);
                    
                     this.setState({
-                        yellow: [4,5,6]
+                        yellow: ["select","4","5","6"]
                     })
                     console.log(this.state.yellow)
                     
@@ -90,7 +92,7 @@ class Preferences extends Component {
             ASU id should be pulled from the user that is currently logged in.
             **********submission page should not be able to be accessed without being logged in
             */
-
+            
         })
         
 
@@ -119,12 +121,6 @@ class Preferences extends Component {
         }
         
         console.log("request fired");
-
-
-        // Converting JSON data to string 
-        
-       
-      
     }
 
    onInputChange(event) {
@@ -133,6 +129,13 @@ class Preferences extends Component {
            [name]: value
        })
    };
+   handleChange(event) {
+    this.setState({testExample: event.target.value});
+  }
+
+  
+
+   
    //check for the new login after I get the sucess message. 
     render() {
         const {showSignUp} = this.state;
@@ -143,8 +146,10 @@ class Preferences extends Component {
                 <div className="container">
                     <h2>Project Preference Submission</h2>
                     <form className="preference-form" onSubmit={this.submitPreferences}>
+
                         <label for="asuID">ASU ID</label>
                         <input
+                            className="asu-id-input"
                             type="text" 
                             placeholder="" 
                             value={this.state.asuID}
@@ -152,124 +157,113 @@ class Preferences extends Component {
                             name="asuID"
                             required
                         />
-                        <label for="fp1">Preference 1</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp1}
-                        >
-                            {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
-                        </select>
-                        <br></br>
+                        <div>
+                        
+                            <label for="fp1">Preference 1</label>
+                            <br></br>
+                            <select
+                                value={this.state.fp1}
+                                onChange={(e) => this.setState({fp1: e.target.value})}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                            </select>
+                            <br></br>
 
-                        <label for="fp2">Preference 2</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp2}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            <label for="fp2">Preference 2</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp2: e.target.value})}
+                                value={this.state.fp2}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
 
-                        <label for="fp3">Preference 3</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp3}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            </select>
+                            <br></br>
 
-                        <label for="fp4">Preference 4</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp4}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            <label for="fp3">Preference 3</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp3: e.target.value})}
+                                value={this.state.fp3}
+                            >         
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+   
+                            </select>
+                            <br></br>
 
-                        <label for="fp5">Preference 5</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp5}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            <label for="fp4">Preference 4</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp4: e.target.value})}
+                                value={this.state.fp4}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                            </select>
+                            <br></br>
 
-                        <label for="fp6">Preference 6</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp6}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            <label for="fp5">Preference 5</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp5: e.target.value})}
+                                value={this.state.fp5}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
 
-                        <label for="fp7">Preference 7</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp7}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            </select>
+                            <br></br>
 
-                        <label for="fp8">Preference 8</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp8}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            <label for="fp6">Preference 6</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp6: e.target.value})}
+                                value={this.state.fp6}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
 
-                        <label for="fp9">Preference 9</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp9}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
-                        <br></br>
+                            </select>
+                            <br></br>
 
-                        <label for="fp10">Preference 10</label>
-                        <br></br>
-                        <select
-                            onChange={this.onInputChange}
-                            value={this.state.fp10}
-                        >
-                            <option  value="Project 1">Project 1</option>
-                            <option  value="Project 2">Project 2</option>
-                            <option  value="Project 3">Project 3</option>
-                        </select>
+                            <label for="fp7">Preference 7</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp7: e.target.value})}
+                                value={this.state.fp7}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                            </select>
+                            <br></br>
 
-                        <button className="btn">Submit</button>
+                            <label for="fp8">Preference 8</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp8: e.target.value})}
+                                value={this.state.fp8}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                            </select>
+                            <br></br>
+
+                            <label for="fp9">Preference 9</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp9: e.target.value})}
+                                value={this.state.fp9}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+
+                            </select>
+                            <br></br>
+
+                            <label for="fp10">Preference 10</label>
+                            <br></br>
+                            <select
+                                onChange={(e) => this.setState({fp10: e.target.value})}
+                                value={this.state.fp10}
+                            >
+                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                            </select>
+                        </div>
+                        <button className="btn btnPreferences">Submit</button>
                         
                     </form>
                     <p className="support">If you run into any issues please contact csecapstone@gmail.com</p>
