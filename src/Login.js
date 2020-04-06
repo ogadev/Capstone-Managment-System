@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './styles/style.css';
 import { Auth } from "aws-amplify";
 import axios from 'axios';
-import Amplify, { API } from 'aws-amplify';
-
 // Amplify.configure({
 //     // OPTIONAL - if your API requires authentication 
   
@@ -109,6 +107,8 @@ class Login extends Component {
         .then(user=> {
             console.log(user);
             console.log("authentication work");
+            this.props.history.push('/home')
+
         })
         .catch(error =>{
             console.log(error);
@@ -121,20 +121,34 @@ class Login extends Component {
             headers: { Authorization: (await Auth.currentSession()).getIdToken().getJwtToken() }
         }
         // const auth = (await Auth.currentSession()).getIdToken().getJwtToken();
-        const response = await axios.post(
-            'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer',
-            {name: 'Oscar Amaya'},
-            config
-            
-        )
-        Auth.currentSession()
+        // const response = await axios.post(
+        //     'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer',
+        //     {name: 'Oscar Amaya'},
+        //     config 
+        // )
+
+        Auth.signOut()
             .then(res => {
-                console.log(res);
+                console.log(res)
             })
             .catch(err => {
                 console.log(err)
             })
-        console.log(response)
+        // let testingman = false;
+        // testingman = Auth.currentUserInfo()
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log("je")
+        //         return true;
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+
+        // console.log(testingman)
+    
+
+        // console.log(response)
         // let apiName = 'CMS_API';
         // let path = 'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer'
         // let myInit = { 

@@ -45,7 +45,7 @@ class Preferences extends Component {
                     console.log(this.state.projects);
                    
                     this.setState({
-                        yellow: ["select","4","5","6"]
+                        yellow: ["select","1","2","3"]
                     })
                     console.log(this.state.yellow)
                     

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import ProtectedRoute from "./protectedRoute"
 import './App.css';
 import Amplify from 'aws-amplify';
 import aws_exports from './aws-exports'; 
@@ -14,7 +14,10 @@ import Demo from './Demo'
 import SignInSucc from './SignInSucc'
 import ProjectProposalSubmission from './ProjectProposalSubmission'
 import Preferences from './Preferences'
+import DashBoard from './DashBoard'
 Amplify.configure(aws_exports)
+
+
 
 function App() {
   return (
@@ -37,15 +40,16 @@ function App() {
         <Route path="/signout">
           <SignInSucc />
         </Route>
-        <Route path ="/proposal">
-          <ProjectProposalSubmission />
-        </Route>
+        <ProtectedRoute path ="/proposal" component={ProjectProposalSubmission}>
+     
+        </ProtectedRoute>
         <Route path="/demo">
           <Demo />
         </Route>
-        <Route path="/preferences">
-          <Preferences />
-        </Route>
+        <ProtectedRoute path="/preferences" component={Preferences}/>
+
+        <ProtectedRoute path="/home" component={DashBoard}/>
+
       </Switch>
    
   );
