@@ -13,24 +13,24 @@ class Preferences extends Component {
                 blankfield: false
             },
             //don't think we need asu id but will get to start
-            fp1:"",
-            fp2:"",
-            fp3:"",
-            fp4:"",
-            fp5:"",
-            fp6:"",
-            fp7:"",
-            fp8:"",
-            fp9:"",
-            fp10:"",
+            fp1:"select",
+            fp2:"select",
+            fp3:"select",
+            fp4:"select",
+            fp5:"select",
+            fp6:"select",
+            fp7:"select",
+            fp8:"select",
+            fp9:"select",
+            fp10:"select",
             asuID:"",
             projects:[],
             yellow:[]
-
             
         };
         this.onInputChange = this.onInputChange.bind(this)
         this.handleChange = this.onInputChange.bind(this)
+        //this.checkInputValidity = this.checkInputValidity.bind(this)
 
     }
 
@@ -64,63 +64,82 @@ class Preferences extends Component {
         });
     }
 
+    //verifies that none of the select fields have been left on "select" and that the asu id is only numbers and is 10 digits long
+    checkInputValidity(){
+        var reg = /^\d+$/;
+
+        if(this.state.fp1 === "select" || this.state.fp2 === "select" || this.state.fp3 === "select" || this.state.fp4 === "select" || 
+        this.state.fp5 === "select" || this.state.fp6 === "select" || this.state.fp7 === "select" || this.state.fp8 === "select" ||
+        this.state.fp9 === "select" || this.state.fp10 === "select" || !reg.test(this.state.asuID) || this.state.asuID.length != 10){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     submitPreferences = async event => {
         //some sort of method 
         //this was just in al of Oscar's messages
         event.preventDefault()   
-        
-        const response = await axios.post(
-        'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/project-preferences', //this will post to the preferences handler
-        {
-        /*TODO
-        -------------------------------
-        figure out wtf to do with proposalID
-        */
-            "fp1": this.state.fp1,
-            "fp2": this.state.fp2,
-            "fp3": this.state.fp3,
-            "fp4": this.state.fp4,
-            "fp5": this.state.fp5,
-            "fp6": this.state.fp6,
-            "fp7": this.state.fp7,
-            "fp8": this.state.fp8,
-            "fp9": this.state.fp9,
-            "fp10": this.state.fp10,
-            "asuID": (this.state.asuID).toString() 
-            /*TODO
-            ------------------------------
-            ASU id should be pulled from the user that is currently logged in.
-            **********submission page should not be able to be accessed without being logged in
-            */
-            
-        })
-        
-
-        /*TODO
-        -------------------------------
-        Handle error response and display to user what went wrong
-        */
-        console.log(response);
-
-
-        switch(response.status){
-            case 200:
-                //send to "thank you\nYour project has been submitted. If you have any further questions please contact capstonecoordinater@asu.edu"
-                break;
-            case 401: //unauthorized
-                break;
-            case 403: //forbidden
-                break;
-            case 404: //not found
-                break;
-            case 408: //timeout
-                break;
-            default:
+        if(this.checkInputValidity()){
+            const response = await axios.post(
+                'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/project-preferences', //this will post to the preferences handler
+                {
+                /*TODO
+                -------------------------------
+                figure out wtf to do with proposalID
+                */
+                    "fp1": this.state.fp1,
+                    "fp2": this.state.fp2,
+                    "fp3": this.state.fp3,
+                    "fp4": this.state.fp4,
+                    "fp5": this.state.fp5,
+                    "fp6": this.state.fp6,
+                    "fp7": this.state.fp7,
+                    "fp8": this.state.fp8,
+                    "fp9": this.state.fp9,
+                    "fp10": this.state.fp10,
+                    "asuID": (this.state.asuID).toString() 
+                    /*TODO
+                    ------------------------------
+                    ASU id should be pulled from the user that is currently logged in.
+                    **********submission page should not be able to be accessed without being logged in
+                    */
+                    
+                })
                 
-
-        }
         
-        console.log("request fired");
+                /*TODO
+                -------------------------------
+                Handle error response and display to user what went wrong
+                */
+                console.log(response);
+        
+        
+                switch(response.status){
+                    case 200:
+                        //send to "thank you\nYour project has been submitted. If you have any further questions please contact capstonecoordinater@asu.edu"
+                        break;
+                    case 401: //unauthorized
+                        break;
+                    case 403: //forbidden
+                        break;
+                    case 404: //not found
+                        break;
+                    case 408: //timeout
+                        break;
+                    default:
+                        
+        
+                }
+                
+        }else{
+            //need to 
+            console.log("nice try");
+        }
+
+
+        
     }
 
    onInputChange(event) {
