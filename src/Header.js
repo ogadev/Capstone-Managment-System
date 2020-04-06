@@ -1,14 +1,16 @@
 import React from 'react';
-
+import './styles/header.css';
 function Header() {
 
 
     return (
         <header>
+            <h3 className="header-h3">Capstone Poject</h3>
             <ul>
-                <li>
-                    
-                </li>
+                <li><a href="/home">home</a></li>
+                <li><a href="/preferences">preferences</a></li>
+                <li><a href="/proposals">proposals</a></li>
+                <li><a href="#">sign out</a></li>
             </ul>
         </header>
     )

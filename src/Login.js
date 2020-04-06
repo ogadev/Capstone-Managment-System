@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Redirect, withRouter} from 'react-router-dom'
+
 import './styles/style.css';
 import { Auth } from "aws-amplify";
 import axios from 'axios';
@@ -17,8 +19,8 @@ import axios from 'axios';
 
 
 class Login extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             email: "",
             password: "",
@@ -97,9 +99,11 @@ class Login extends Component {
     }
 
     signInSubmit = async event => {
-        const {email, password} = this.state;
-
         event.preventDefault();
+
+        const {email, password} = this.state;
+       
+        // const history = useHistory();
         Auth.signIn({
             'username': email,
             'password': password
@@ -107,7 +111,8 @@ class Login extends Component {
         .then(user=> {
             console.log(user);
             console.log("authentication work");
-            this.props.history.push('/home')
+            this.props.history.push('/home');
+
 
         })
         .catch(error =>{
@@ -281,4 +286,4 @@ class Login extends Component {
 }
 
 
-export default Login
+export default withRouter(Login)
