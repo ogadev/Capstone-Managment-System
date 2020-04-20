@@ -1,21 +1,38 @@
 
+.proposal-background {
+    display: block;
+    background: #d8d4d4;
+}
+
 .proposal-page {
-    width: 600px;
+    width: 700px;
     margin: 0 auto;
     text-align: left;
+    padding: 10px 70px;
+    background: white;
+    
+    
 }
+
 
 label {
     margin-top: 6em;
+    font-size: 1.5em;
+    font-weight: bold;
+    
 }
 
 textarea {
     width: 100%;
+    border: 1px solid black;
+    -webkit-border-radius: 5px;
 }
+
 
 .form-h2 {
     padding: 1em 0;
 }
+
 
 .asu-id-input {
     width: 100px;

@@ -91,7 +91,7 @@ class Login extends Component {
         .then(user=> {
             console.log(user);
             console.log("authentication work");
-            this.props.history.push('/home');
+            this.props.history.push('/proposal'); //TODO change to the right path
 
 
         })
@@ -216,13 +216,13 @@ class Login extends Component {
                                     name="sConfirmPassword"
                                     required
                                 />
-                                <label>ID Number</label>
+                                <label>Company Name</label>
                                 <input 
-                                    type="numbers" 
-                                    placeholder="Enter ID Number"
-                                    value={this.state.sIdNumber}
+                                    type="text" 
+                                    placeholder="Enter your company name"
+                                    value={this.state.sCompanyName}
                                     onChange={this.onInputChange}
-                                    name="sIdNumber"
+                                    name="sCompanyName"
                                     required
                                 />
                                 <button className="btn">Sign Up</button>

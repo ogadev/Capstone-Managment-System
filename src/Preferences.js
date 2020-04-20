@@ -166,9 +166,9 @@ class Preferences extends Component {
         return (
 
             
-            <div className="preference-page">
+            <div className="proposal-background">
                 <Header/>
-                <div className="container">
+                <div className="preferences-page">
                     <h2>Project Preference Submission</h2>
                     <form className="preference-form" onSubmit={this.submitPreferences}>
 

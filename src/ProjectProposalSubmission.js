@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles/forms.css';
-import { Auth } from "aws-amplify";
 import axios from 'axios';
 import Header from './Header'
 
@@ -110,128 +109,130 @@ class ProjectProposalSubmission extends Component {
     render() {
         const {showSignUp} = this.state;
         return (
-
-                <div className="proposal-page">
+                <div className="proposal-background">
                     <Header />
-                    <div className="container">
-                        <h2>Project Proposal Submission</h2>
-                        <form className="proposal-form" onSubmit={this.submitProposal}>
-                            <label for="fProposerOrg">Proposer Organization</label>
-                            <input
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.fProposerOrg}
-                                onChange={this.onInputChange}
-                                name="fProposerOrg"
-                                required
-                            />
-                            <label for="pName">Proposer Name</label>
-                            <input 
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.fProposerName}
-                                onChange={this.onInputChange}
-                                name="fProposerName"
-                                required
-                            />
-                            <label for="fProposerEmail">Proposer Email Address</label>
-                            <input 
-                                type="email" 
-                                placeholder="" 
-                                value={this.state.fProposerEmail}
-                                onChange={this.onInputChange}
-                                name="fProposerEmail"
-                                required
-                            />
-                            <label for="fProposerContactName">Project Contact Name(if different than proposer</label>
-                            <input 
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.fProposerContactName}
-                                onChange={this.onInputChange}
-                                name="fProposerContactName"
-                                required
-                            />
-                            <label for="fProposerContactEmail">Project Contact Email(if different than proposer</label>
-                            <input 
-                                type="email" 
-                                placeholder="" 
-                                value={this.state.fProposerContactEmail}
-                                onChange={this.onInputChange}
-                                name="fProposerContactEmail"
-                                required
-                            />
-                            <label for="fProjectTitle">Project Title</label>
-                            <input 
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.fProjectTitle}
-                                onChange={this.onInputChange}
-                                name="fProjectTitle"
-                                required
-                            />
-                            <label for="fProjectDescription">Project Description</label>
-                            <textarea 
-                                name="fProjectDescription"
-                                rows="10" 
-                                cols="30" 
-                                onChange={this.onInputChange}
-                                value={this.fProjectDescription}
-                            ></textarea>
-                            <br></br>
-                            <label for="fProjectExperience">Project Experience/Learning Goals</label>
-                            <textarea 
-                                name="fProjectExperience"
-                                rows="10" 
-                                cols="30" 
-                                onChange={this.onInputChange}
-                                value={this.fProjectExperience}
-                            ></textarea>
-                            <br></br>
-                            <label for="fExpectedDeliverables">Project Deliverables</label>
-                            <textarea 
-                                name="fExpectedDeliverables"
-                                rows="10" 
-                                cols="30" 
-                                onChange={this.onInputChange}
-                                value={this.fExpectedDeliverables}
-                            ></textarea>
-                            <br></br>
-                            <label for="fDesiredBackground">Desired Background</label>
-                            <textarea 
-                                name="fDesiredBackground"
-                                rows="10" 
-                                cols="30" 
-                                onChange={this.onInputChange}
-                                value={this.fDesiredBackground}
-                            ></textarea>
-                            <br></br>
-                            <label for="fDesiredNumberGroups">Desired Number of Groups</label>
-                            <input 
-                                type="number" 
-                                placeholder="" 
-                                value={this.state.fDesiredNumberGroups}
-                                onChange={this.onInputChange}
-                                name="fDesiredNumberGroups"
-                                min="1"
-                                max="5"
-                                required
-                            />
-                            <label for="fDesiredNumberMembers">Desired Number of Group Members</label>
-                            <input 
-                                type="number" 
-                                placeholder="" 
-                                value={this.state.fDesiredNumberMembers}
-                                onChange={this.onInputChange}
-                                name="fDesiredNumberMembers"
-                                min="2"
-                                max="7"
-                                required
-                            />                          
-                            <button className="btn">Submit</button>
-                            
-                        </form>
-                        <p className="support">If you run into any issues please contact csecapstone@gmail.com</p>
+                    <div className="proposal-page">
+                        
+                        <div className="container">
+                            <h2>Project Proposal Submission</h2>
+                            <form className="proposal-form" onSubmit={this.submitProposal}>
+                                <label for="fProposerOrg">Proposer Organization</label>
+                                <input
+                                    type="text" 
+                                    placeholder="" 
+                                    value={this.state.fProposerOrg}
+                                    onChange={this.onInputChange}
+                                    name="fProposerOrg"
+                                    required
+                                />
+                                <label for="pName">Proposer Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="" 
+                                    value={this.state.fProposerName}
+                                    onChange={this.onInputChange}
+                                    name="fProposerName"
+                                    required
+                                />
+                                <label for="fProposerEmail">Proposer Email Address</label>
+                                <input 
+                                    type="email" 
+                                    placeholder="" 
+                                    value={this.state.fProposerEmail}
+                                    onChange={this.onInputChange}
+                                    name="fProposerEmail"
+                                    required
+                                />
+                                <label for="fProposerContactName">Project Contact Name(if different than proposer</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="" 
+                                    value={this.state.fProposerContactName}
+                                    onChange={this.onInputChange}
+                                    name="fProposerContactName"
+                                    required
+                                />
+                                <label for="fProposerContactEmail">Project Contact Email(if different than proposer</label>
+                                <input 
+                                    type="email" 
+                                    placeholder="" 
+                                    value={this.state.fProposerContactEmail}
+                                    onChange={this.onInputChange}
+                                    name="fProposerContactEmail"
+                                    required
+                                />
+                                <label for="fProjectTitle">Project Title</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="" 
+                                    value={this.state.fProjectTitle}
+                                    onChange={this.onInputChange}
+                                    name="fProjectTitle"
+                                    required
+                                />
+                                <label for="fProjectDescription">Project Description</label>
+                                <textarea 
+                                    name="fProjectDescription"
+                                    rows="10" 
+                                    cols="30" 
+                                    onChange={this.onInputChange}
+                                    value={this.fProjectDescription}
+                                ></textarea>
+                                <br></br>
+                                <label for="fProjectExperience">Project Experience/Learning Goals</label>
+                                <textarea 
+                                    name="fProjectExperience"
+                                    rows="10" 
+                                    cols="30" 
+                                    onChange={this.onInputChange}
+                                    value={this.fProjectExperience}
+                                ></textarea>
+                                <br></br>
+                                <label for="fExpectedDeliverables">Project Deliverables</label>
+                                <textarea 
+                                    name="fExpectedDeliverables"
+                                    rows="10" 
+                                    cols="30" 
+                                    onChange={this.onInputChange}
+                                    value={this.fExpectedDeliverables}
+                                ></textarea>
+                                <br></br>
+                                <label for="fDesiredBackground">Desired Background</label>
+                                <textarea 
+                                    name="fDesiredBackground"
+                                    rows="10" 
+                                    cols="30" 
+                                    onChange={this.onInputChange}
+                                    value={this.fDesiredBackground}
+                                ></textarea>
+                                <br></br>
+                                <label for="fDesiredNumberGroups">Desired Number of Groups</label>
+                                <input 
+                                    type="number" 
+                                    placeholder="" 
+                                    value={this.state.fDesiredNumberGroups}
+                                    onChange={this.onInputChange}
+                                    name="fDesiredNumberGroups"
+                                    min="1"
+                                    max="5"
+                                    required
+                                />
+                                <label for="fDesiredNumberMembers">Desired Number of Group Members</label>
+                                <input 
+                                    type="number" 
+                                    placeholder="" 
+                                    value={this.state.fDesiredNumberMembers}
+                                    onChange={this.onInputChange}
+                                    name="fDesiredNumberMembers"
+                                    min="2"
+                                    max="7"
+                                    required
+                                />                          
+                                <button className="btn">Submit</button>
+                                
+                            </form>
+                            <p className="support">If you run into any issues please contact csecapstone@gmail.com</p>
+                        </div>
                     </div>
                 </div>
             
