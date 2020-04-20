@@ -9,7 +9,7 @@ function Header() {
             <ul>
                 <li><a href="/home">home</a></li>
                 <li><a href="/preferences">preferences</a></li>
-                <li><a href="/proposals">proposals</a></li>
+                <li><a href="/proposal">proposal</a></li>
                 <li><a href="#">sign out</a></li>
             </ul>
         </header>

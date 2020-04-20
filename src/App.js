@@ -15,6 +15,7 @@ import SignInSucc from './SignInSucc'
 import ProjectProposalSubmission from './ProjectProposalSubmission'
 import Preferences from './Preferences'
 import DashBoard from './DashBoard'
+import SponserLogin from './SponserLogin'
 Amplify.configure(aws_exports)
 
 
@@ -45,6 +46,10 @@ function App() {
         <Route path="/signout">
           <SignInSucc />
         </Route>
+        <Route path="/sponsorSignIn">
+          <SponserLogin />
+        </Route>
+
         <ProtectedRoute path ="/proposal" component={ProjectProposalSubmission}>
      
         </ProtectedRoute>
