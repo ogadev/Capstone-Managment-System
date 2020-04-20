@@ -18,6 +18,11 @@ import DashBoard from './DashBoard'
 Amplify.configure(aws_exports)
 
 
+/*************************************************************************
+ This is the brains of the project. Protected routes are the ones that need
+ authentication 
+***************************************************************************/
+
 
 function App() {
   return (

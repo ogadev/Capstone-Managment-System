@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
-import {Redirect, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 import './styles/style.css';
 import { Auth } from "aws-amplify";
-import axios from 'axios';
-// Amplify.configure({
-//     // OPTIONAL - if your API requires authentication 
-  
-//     API: {
-//         endpoints: [
-//             {
-//                 name: "CMS_API",
-//                 endpoint: "https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev"
-//             }
-//         ]
-//     }
-// });
 
 
 class Login extends Component {
@@ -34,8 +21,7 @@ class Login extends Component {
             sPassword: "",
             sConfirmPassword: "",
             sIdNumber: "",
-
-            
+            sCompanyName: "notaRealCompanyLOL",
             showSignUp: false
         };
         this.onInputChange = this.onInputChange.bind(this)
@@ -53,7 +39,7 @@ class Login extends Component {
 
     signUpSubmit = async event => {
         event.preventDefault();
-       const {sName, sEmail, sPassword, sConfirmPassword, sIdNumber} = this.state;
+       const {sName, sEmail, sPassword, sConfirmPassword, sIdNumber, sCompanyName} = this.state;
        if (sPassword !== sConfirmPassword) {
            alert("passwords don't match");
        }
@@ -79,7 +65,8 @@ class Login extends Component {
                             'password': sPassword,
                             'attributes': {
                                 'custom:name': sName,
-                                'custom:ASUID': sIdNumber
+                                'custom:ASUID': sIdNumber,
+                                'custom:customCompanyName': sCompanyName 
                             }
                         })
                         .then(data => {
@@ -125,12 +112,7 @@ class Login extends Component {
         const config = {
             headers: { Authorization: (await Auth.currentSession()).getIdToken().getJwtToken() }
         }
-        // const auth = (await Auth.currentSession()).getIdToken().getJwtToken();
-        // const response = await axios.post(
-        //     'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer',
-        //     {name: 'Oscar Amaya'},
-        //     config 
-        // )
+        
 
         Auth.signOut()
             .then(res => {
@@ -139,27 +121,6 @@ class Login extends Component {
             .catch(err => {
                 console.log(err)
             })
-        // let testingman = false;
-        // testingman = Auth.currentUserInfo()
-        //     .then(res => {
-        //         console.log(res);
-        //         console.log("je")
-        //         return true;
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
-
-        // console.log(testingman)
-    
-
-        // console.log(response)
-        // let apiName = 'CMS_API';
-        // let path = 'https://y9k91gzue2.execute-api.us-east-2.amazonaws.com/dev/post-test-authorizer'
-        // let myInit = { 
-        //     headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}` }
-        // }
-        // return await API.post(apiName, path, myInit);
 
     }
 

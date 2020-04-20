@@ -54,12 +54,3 @@ class ProtectedRoute extends React.Component {
 
 export default withRouter(ProtectedRoute)
 
-// const Routes = () => (
-//   <Router>
-//     <Switch>
-//       <Route path='/auth' component={Authenticator} />
-//       <PrivateRoute path='/route1' component={Route1} />
-//       <PrivateRoute path='/' component={Home} />
-//     </Switch>
-//   </Router>
-// )
