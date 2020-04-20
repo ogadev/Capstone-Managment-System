@@ -26,11 +26,18 @@ ul {
 li {
     display: inline-block;
     padding: 15px, 30px;
+    margin-top: 7px;
 }
 
 a{
     text-align: center;
     color: #FFC627;
     text-decoration: none;
-    font-size: 1.2vw;
+    font-size: 1.25em;
+    
+    margin-right: 3em;
+}
+
+a:hover {
+    transform: ;
 }

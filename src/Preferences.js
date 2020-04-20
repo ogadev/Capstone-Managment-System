@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles/forms.css';
 import { Auth } from "aws-amplify";
 import axios from 'axios';
-
+import Header from './Header'
 class Preferences extends Component {
     constructor() {
         super()
@@ -162,6 +162,7 @@ class Preferences extends Component {
 
             
             <div className="preference-page">
+                <Header/>
                 <div className="container">
                     <h2>Project Preference Submission</h2>
                     <form className="preference-form" onSubmit={this.submitPreferences}>

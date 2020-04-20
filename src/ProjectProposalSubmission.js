@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/forms.css';
 import { Auth } from "aws-amplify";
 import axios from 'axios';
+import Header from './Header'
 
 class ProjectProposalSubmission extends Component {
     constructor() {
@@ -111,6 +112,7 @@ class ProjectProposalSubmission extends Component {
         return (
 
                 <div className="proposal-page">
+                    <Header />
                     <div className="container">
                         <h2>Project Proposal Submission</h2>
                         <form className="proposal-form" onSubmit={this.submitProposal}>
