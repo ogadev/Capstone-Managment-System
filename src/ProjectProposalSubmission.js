@@ -56,7 +56,6 @@ class ProjectProposalSubmission extends Component {
         figure out wtf to do with proposalID
         */
             "proposalID": "3",
-            "newID":"4", //for now this is manual
             "expectedBackground": this.state.fDesiredBackground,
             "numGroups": (this.state.fDesiredNumberGroups).toString(),
             "numMembersPerGroup":(this.state.fDesiredNumberMembers).toString(),
@@ -72,7 +71,7 @@ class ProjectProposalSubmission extends Component {
             "proposerName":this.state.fProposerName
         })
         
-
+        console.log(response);
         /*TODO
         -------------------------------
         Handle error response and display to user what went wrong
@@ -80,6 +79,7 @@ class ProjectProposalSubmission extends Component {
         switch(response.status){
             case 200:
                 //send to "thank you\nYour project has been submitted. If you have any further questions please contact capstonecoordinater@asu.edu"
+                //console.log("It worked");
                 break;
             case 401: //unauthorized
                 break;
@@ -227,16 +227,7 @@ class ProjectProposalSubmission extends Component {
                                 min="2"
                                 max="7"
                                 required
-                            />
-                            <label for="fSemesterYear">Interest in sponsoring a course section</label>
-                            <input 
-                                type="text" 
-                                placeholder="" 
-                                value={this.state.fSemesterYear}
-                                onChange={this.onInputChange}
-                                name="fSemesterYear"
-                                required
-                            />                            
+                            />                          
                             <button className="btn">Submit</button>
                             
                         </form>

@@ -44,10 +44,15 @@ class Preferences extends Component {
                     }
                     console.log(this.state.projects);
                    
+
                     this.setState({
                         yellow: ["select","1","2","3"]
                     })
-                    console.log(this.state.yellow)
+
+                    this.setState({
+                        projects: this.state.projects
+                    })
+                    //console.log(this.state.yellow)
                     
                     //populate the 
                 });
@@ -185,7 +190,7 @@ class Preferences extends Component {
                                 value={this.state.fp1}
                                 onChange={(e) => this.setState({fp1: e.target.value})}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
                             </select>
                             <br></br>
 
@@ -195,7 +200,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp2: e.target.value})}
                                 value={this.state.fp2}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
 
                             </select>
                             <br></br>
@@ -206,7 +211,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp3: e.target.value})}
                                 value={this.state.fp3}
                             >         
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
    
                             </select>
                             <br></br>
@@ -217,7 +222,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp4: e.target.value})}
                                 value={this.state.fp4}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
                             </select>
                             <br></br>
 
@@ -227,7 +232,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp5: e.target.value})}
                                 value={this.state.fp5}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
 
                             </select>
                             <br></br>
@@ -238,7 +243,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp6: e.target.value})}
                                 value={this.state.fp6}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
 
                             </select>
                             <br></br>
@@ -249,7 +254,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp7: e.target.value})}
                                 value={this.state.fp7}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
                             </select>
                             <br></br>
 
@@ -259,7 +264,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp8: e.target.value})}
                                 value={this.state.fp8}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
                             </select>
                             <br></br>
 
@@ -269,7 +274,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp9: e.target.value})}
                                 value={this.state.fp9}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
 
                             </select>
                             <br></br>
@@ -280,7 +285,7 @@ class Preferences extends Component {
                                 onChange={(e) => this.setState({fp10: e.target.value})}
                                 value={this.state.fp10}
                             >
-                                {this.state.yellow.map((proj) => <option value={proj} key={proj}>{proj}</option>)}
+                                {this.state.projects.map((proj) => <option value={proj.projectID} key={proj.projectID}>{proj.title}</option>)}
                             </select>
                         </div>
                         <button className="btn btnPreferences">Submit</button>
