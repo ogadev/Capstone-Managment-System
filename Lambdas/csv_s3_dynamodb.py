@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     year = now.year
     month = now.month
     term = ""
-    if month > 0 and month <= 7:
+    if month > 0 and month <= 7: #this portion validates the month + semester combo so we can get the month+semester a student starts capstone, for use in future when you get into multi semester use.
         term = "Spring" + str(year)
     elif month <= 12 and month > 7:
         term = "Fall" + str(year)
