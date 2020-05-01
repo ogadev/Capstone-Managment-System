@@ -1,6 +1,10 @@
 import React from 'react';
 // import axios from 'axios';
 
+/*************************************************************************
+ We ended up not using this but you can upload files with this. 
+***************************************************************************/
+
 
 class FileUpload extends React.Component {
     constructor(props) {

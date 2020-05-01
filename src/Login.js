@@ -4,6 +4,10 @@ import {withRouter} from 'react-router-dom'
 import './styles/style.css';
 import { Auth } from "aws-amplify";
 
+/*************************************************************************
+ This is the the login page and also the sign up page
+***************************************************************************/
+
 
 class Login extends Component {
     constructor(props) {
@@ -36,6 +40,11 @@ class Login extends Component {
           }
         });
     }
+
+/*************************************************************************
+in order for the student to sign up succesfully the student must have their ID
+number added to the database
+***************************************************************************/
 
     signUpSubmit = async event => {
         event.preventDefault();
@@ -165,13 +174,14 @@ class Login extends Component {
                             />
                             <button className="btn"> login</button>    
                             <div className="under-login">
-                                <p className="under-login-items" ><a href="/forgotpassword">forgot password?</a></p>
+                                <p className="under-login-items" >Forgot Password?</p>
+                                {/* <p className="under-login-items" ><a href="/forgotpassword">forgot password?</a></p> */}
                                 <p
                                     className="under-login-items" 
                                     onClick={() => this.setState({showSignUp: true})}>Sign up</p> 
                             </div> 
                         </form>
-                        <button onClick={() => this.signOut()}>sign out</button>
+                        {/* <button onClick={() => this.signOut()}>sign out</button> */}
                         <p className="support">If you run into any issues please contact support</p>
                     </div>
                 </div>
@@ -238,7 +248,7 @@ class Login extends Component {
                         </form>
                     </div>
                     </div>
-                :null
+                :null //this is ternary. Null will not display the sign up page. 
                  }
             
             </div>

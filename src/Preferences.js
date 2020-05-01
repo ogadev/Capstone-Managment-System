@@ -3,6 +3,13 @@ import './styles/forms.css';
 import { Auth } from "aws-amplify";
 import axios from 'axios';
 import Header from './Header'
+
+
+/*************************************************************************
+ This is the preferences page where studetns can choose their top ten preferences
+***************************************************************************/
+
+
 class Preferences extends Component {
     constructor() {
         super()

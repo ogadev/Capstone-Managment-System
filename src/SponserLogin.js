@@ -4,7 +4,9 @@ import {withRouter} from 'react-router-dom'
 import './styles/style.css';
 import { Auth } from "aws-amplify";
 
-
+/*************************************************************************
+ its the same page for like the other login but for the sponsors. 
+***************************************************************************/
 class Login extends Component {
     constructor(props) {
         super(props)
@@ -157,13 +159,14 @@ class Login extends Component {
                             />
                             <button className="btn"> login</button>    
                             <div className="under-login">
-                                <p className="under-login-items" ><a href="/forgotpassword">forgot password?</a></p>
+                                {/* <p className="under-login-items" ><a href="/forgotpassword">forgot password?</a></p> */}
+                                <p className="under-login-items" >Forgot Password?</p>                              
                                 <p
                                     className="under-login-items" 
                                     onClick={() => this.setState({showSignUp: true})}>Sign up</p> 
                             </div> 
                         </form>
-                        <button onClick={() => this.signOut()}>sign out</button>
+                        {/* <button onClick={() => this.signOut()}>sign out</button> */}
                         <p className="support">If you run into any issues please contact support</p>
                     </div>
                 </div>

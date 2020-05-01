@@ -5,7 +5,7 @@ function DashBoard() {
   return (
         <div>
             <Header/>
-            <h1>Welcome to dash board</h1>
+            <h1>Welcome to dash board Students</h1>
         </div>
     )
 }

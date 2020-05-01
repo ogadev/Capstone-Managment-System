@@ -3,6 +3,10 @@ import { Auth } from "aws-amplify";
 
 function SignInSucc() {
 
+/*************************************************************************
+I don't remember what this was for :(
+***************************************************************************/
+
     function signOut() {
         Auth.signOut()
         .then(data => console.log(data))

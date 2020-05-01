@@ -2,7 +2,10 @@ import React from 'react';
 import './styles/header.css';
 function Header() {
 
-
+/*************************************************************************
+ this is the header, you can add it to any other pages. An example is the 
+ dashboard.js file
+***************************************************************************/
     return (
         <header>
             <h3 className="header-h3">Capstone Poject</h3>

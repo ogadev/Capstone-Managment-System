@@ -1,6 +1,12 @@
 import React from 'react';
 import './styles/forms.css'
 
+/*************************************************************************
+We ended up not using this because we decided to use our forms but this is 
+how you add a google form.
+**************************************************************************/
+
+
 function GoogleForms () {
     return (
         <div className="form">

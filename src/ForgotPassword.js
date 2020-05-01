@@ -3,6 +3,10 @@ import { Auth } from 'aws-amplify';
 import './styles/styleForgot.css';
 
 
+/*************************************************************************
+ AS the name suggests this is what you use to change your password
+***************************************************************************/
+
 class ForgotPassword extends Component{
     constructor(){
         super()

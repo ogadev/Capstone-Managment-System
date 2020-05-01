@@ -5,6 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router} from "react-router-dom";
 
+/*************************************************************************
+ This is the main componnent. This is the root. 
+***************************************************************************/
 
 ReactDOM.render(
     <Router>

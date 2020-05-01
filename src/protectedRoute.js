@@ -9,6 +9,12 @@ import {
 import { Auth } from 'aws-amplify'
 
 
+/*************************************************************************
+Security: with this only authenticated users can access certain pages
+what you have to do is that you wrap components in app.js and if the user is 
+not authenticated it will be send to the login page. 
+***************************************************************************/
+
 class ProtectedRoute extends React.Component {
   state = {
     loaded: false,

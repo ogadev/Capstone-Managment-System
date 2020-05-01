@@ -3,6 +3,10 @@ import './styles/forms.css';
 import axios from 'axios';
 import Header from './Header'
 
+/*************************************************************************
+ This is the sponsors submit to the database  of their project proposals to ASU
+***************************************************************************/
+
 class ProjectProposalSubmission extends Component {
     constructor() {
         super()
