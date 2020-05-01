@@ -1,6 +1,9 @@
 import boto3
 import datetime
 
+#This is a file that is triggered by students.csv being dropped into our s3 bucket. When the file is dumped it triggers this lambda function
+#which then reads the file and parses it into a dynamoDB table called Students.
+
 s3_client = boto3.client("s3")
 
 dynamodb = boto3.resource('dynamodb')
